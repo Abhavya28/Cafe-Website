@@ -3,19 +3,20 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import MenuPage from "./Pages/MenuPage";
 import ContactPage from "./Pages/ContactPage";
-import SignIn from "./Pages/SignIn";
+import Cart from "./Pages/Cart";
+import { CartProvider } from "./Components/CartComponent.jsx"; // Add this
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 
