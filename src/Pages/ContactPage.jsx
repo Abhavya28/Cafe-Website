@@ -25,7 +25,7 @@ export default function ContactPage() {
             e.preventDefault();
             const name = e.target.name.value;
             const message = e.target.message.value;
-            window.open(`https://wa.me/917986779012?text=Hello, I am ${name}. ${message}`);
+            window.open(`https://wa.me/919876543210?text=Hello, I am ${name}. ${message}`);
           }}
         >
           <input type="text" name="name" placeholder="Your Name" required />

@@ -13,7 +13,7 @@ export default function CartPage() {
       .join("\n");
 
     const text = `Hello! I’d like to order:\n${message}\n\nTotal = ₹${total}`;
-    window.open(`https://wa.me/917986779012?text=${encodeURIComponent(text)}`);
+    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`);
   };
 
   return (
