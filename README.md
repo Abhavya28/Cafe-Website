@@ -28,13 +28,13 @@ Includes a dynamic menu, cart system, and mobile-friendly navigation.
 
 ## 📸 Screenshots
 ### 🏠 Home Page
-![Home Page](./screenshots/home.png)
+![Home Page](./screenshots/Home.png)
 
 ### 📋 Menu Page
-![Menu Page](./screenshots/menu.png)
+![Menu Page](./screenshots/Menu.png)
 
 ### 🛒 Cart Page
-![Cart Page](./screenshots/cart.png)
+![Cart Page](./screenshots/Cart.png)
 
 ---
 
