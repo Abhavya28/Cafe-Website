@@ -40,7 +40,7 @@ Includes a dynamic menu, cart system, and mobile-friendly navigation.
 
 ## 👩‍💻 Author
 **Abhavya Gupta**  
-B.Tech CSE | Frontend Developer  
+B.Tech CSE | Full-Stack Developer  
 
 🔗 [GitHub Profile](https://github.com/Abhavya28)  
 
