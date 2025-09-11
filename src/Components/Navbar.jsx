@@ -1,40 +1,104 @@
+// import { Link } from "react-router-dom";
+// import "./Navbar.css";
+// import { useContext } from "react";
+// import { CartContext } from "../Components/CartComponent.jsx";
+
+// function Navbar() {
+//   const { cart } = useContext(CartContext);
+
+//   return (
+//     <nav className="navbar">
+//       <h2 className="logo">Bean & Brew</h2>
+//       <ul className="nav-links">
+//         <li><Link to="/">Home</Link></li>
+//         <li><Link to="/menu">Menu</Link></li>
+//         <li><Link to="/contact">Contact Us</Link></li>
+//         <li>
+//           <Link to="/cart" className="cart-btn">
+//             {/* Cart SVG */}
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               viewBox="0 0 32 32"
+//               width="24"
+//               height="24"
+//             >
+//               <defs>
+//                 <style>{`.cls-1{fill:#231f20}`}</style>
+//               </defs>
+//               <g id="cart">
+//                 <path
+//                   className="cls-1"
+//                   d="M29.46 10.14A2.94 2.94 0 0 0 27.1 9H10.22L8.76 6.35A2.67 2.67 0 0 0 6.41 5H3a1 1 0 0 0 0 2h3.41a.68.68 0 0 1 .6.31l1.65 3 .86 9.32a3.84 3.84 0 0 0 4 3.38h10.37a3.92 3.92 0 0 0 3.85-2.78l2.17-7.82a2.58 2.58 0 0 0-.45-2.27zM28 11.86l-2.17 7.83A1.93 1.93 0 0 1 23.89 21H13.48a1.89 1.89 0 0 1-2-1.56L10.73 11H27.1a1 1 0 0 1 .77.35.59.59 0 0 1 .13.51z"
+//                 />
+//                 <circle className="cls-1" cx="14" cy="26" r="2" />
+//                 <circle className="cls-1" cx="24" cy="26" r="2" />
+//               </g>
+//             </svg>
+//             {/* Item count */}
+//             {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+//             Cart
+//           </Link>
+//         </li>
+//       </ul>
+//     </nav>
+//   );
+// }
+
+// export default Navbar;  
+
+
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../Components/CartComponent.jsx";
 
 function Navbar() {
   const { cart } = useContext(CartContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="navbar">
       <h2 className="logo">Bean & Brew</h2>
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Menu</Link></li>
-        <li><Link to="/contact">Contact Us</Link></li>
+
+      {/* Hamburger Button with SVG */}
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle Menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 50 50"
+          width="28"
+          height="28"
+          fill="#fff"
+        >
+          <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z"></path>
+        </svg>
+      </button>
+
+      {/* Navigation Links */}
+      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
         <li>
-          <Link to="/cart" className="cart-btn">
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        </li>
+        <li>
+          <Link to="/menu" onClick={() => setMenuOpen(false)}>Menu</Link>
+        </li>
+        <li>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
+        </li>
+        <li>
+          <Link to="/cart" className="cart-btn" onClick={() => setMenuOpen(false)}>
             {/* Cart SVG */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              width="24"
-              height="24"
-            >
-              <defs>
-                <style>{`.cls-1{fill:#231f20}`}</style>
-              </defs>
-              <g id="cart">
-                <path
-                  className="cls-1"
-                  d="M29.46 10.14A2.94 2.94 0 0 0 27.1 9H10.22L8.76 6.35A2.67 2.67 0 0 0 6.41 5H3a1 1 0 0 0 0 2h3.41a.68.68 0 0 1 .6.31l1.65 3 .86 9.32a3.84 3.84 0 0 0 4 3.38h10.37a3.92 3.92 0 0 0 3.85-2.78l2.17-7.82a2.58 2.58 0 0 0-.45-2.27zM28 11.86l-2.17 7.83A1.93 1.93 0 0 1 23.89 21H13.48a1.89 1.89 0 0 1-2-1.56L10.73 11H27.1a1 1 0 0 1 .77.35.59.59 0 0 1 .13.51z"
-                />
-                <circle className="cls-1" cx="14" cy="26" r="2" />
-                <circle className="cls-1" cx="24" cy="26" r="2" />
-              </g>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+              <path
+                d="M29.46 10.14A2.94 2.94 0 0 0 27.1 9H10.22L8.76 6.35A2.67 2.67 0 0 0 6.41 5H3a1 1 0 0 0 0 2h3.41a.68.68 0 0 1 .6.31l1.65 3 .86 9.32a3.84 3.84 0 0 0 4 3.38h10.37a3.92 3.92 0 0 0 3.85-2.78l2.17-7.82a2.58 2.58 0 0 0-.45-2.27zM28 11.86l-2.17 7.83A1.93 1.93 0 0 1 23.89 21H13.48a1.89 1.89 0 0 1-2-1.56L10.73 11H27.1a1 1 0 0 1 .77.35.59.59 0 0 1 .13.51z"
+                fill="#fff"
+              />
+              <circle cx="14" cy="26" r="2" fill="#fff" />
+              <circle cx="24" cy="26" r="2" fill="#fff" />
             </svg>
-            {/* Item count */}
             {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
             Cart
           </Link>
@@ -44,4 +108,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;  
+export default Navbar;
